@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.google.code</groupId>
+  <artifactId>maven-archetypes-starter</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <name>Maven Archetypes Starter</name>
+  <description>Maven Archetypes Starter</description>
+
+  <properties>
+    <maven.version>2.0.8</maven.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-core</artifactId>
+      <version>${maven.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.google.code</groupId>
+      <artifactId>maven-archetypes</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+  </dependencies>
+
+</project>
