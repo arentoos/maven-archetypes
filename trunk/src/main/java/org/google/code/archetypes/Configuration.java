@@ -1,6 +1,9 @@
 package org.google.code.archetypes;
 
+import org.jdom.JDOMException;
+
 import java.io.File;
+import java.io.IOException;
 
 /**
  * This class represents configuration for Maven Archetypes.
@@ -8,13 +11,13 @@ import java.io.File;
  * @author Alexander Shvets
  * @version 1.0 01/19/2007
  */
-public final class Configuration {
+public class Configuration {
   public final static String ARCHETYPES_FILE_NAME = "archetypes.xml";
 
   private ArchetypesReader archetypesReader = new ArchetypesReader();
 
-  private String archetypesFileLocation;
-  private String workingDirectory;
+  protected String archetypesFileLocation = ARCHETYPES_FILE_NAME;
+  protected String workingDirectory;
 
   public String getArchetypesFileLocation() {
     return archetypesFileLocation;
@@ -32,18 +35,13 @@ public final class Configuration {
     this.workingDirectory = workingDirectory;
   }
 
-  public void loadArchetypesFile() {
+  public void loadArchetypesFile() throws JDOMException, IOException {
     archetypesFileLocation = getArchetypesFileName();
 
-    try {
-      archetypesReader.readConfigFile(archetypesFileLocation);
-    }
-    catch (Exception e) {
-      e.printStackTrace();
-    }
+    archetypesReader.readConfigFile(archetypesFileLocation);
   }
 
-  private String getArchetypesFileName() {
+  protected String getArchetypesFileName() {
     String fileName = ARCHETYPES_FILE_NAME;
 
     String location = getArchetypesFileLocation();

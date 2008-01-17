@@ -31,12 +31,10 @@ public class ArchetypesPanel extends JPanel {
   private JTextField artifactIdField = new JTextField(15);
   private JTextField versionField = new JTextField(15);
 
-  private Configuration configuration;
-  private CoreArchetypes archetypes;
+  protected ArchetypesReader archetypesReader;
 
-  public ArchetypesPanel(Configuration configuration, CoreArchetypes archetypes) {
-    this.configuration = configuration;
-    this.archetypes = archetypes;
+  public ArchetypesPanel(ArchetypesReader archetypesReader) {
+    this.archetypesReader = archetypesReader;
 
     groupIdField.setText("org.test");
     artifactIdField.setText("test");
@@ -56,18 +54,14 @@ public class ArchetypesPanel extends JPanel {
     resetControls();
   }
 
-  private Configuration getConfiguration() {
-    return configuration;
-  }
-
   public void resetControls() {
-    groupCombo.setModel(new GroupModel(getConfiguration().getArchetypesReader().getGroups()));
+    groupCombo.setModel(new GroupModel(archetypesReader.getGroups()));
 
     groupCombo.addItemListener(new ItemListener() {
       public void itemStateChanged(ItemEvent e) {
-        String groupName = (String) groupCombo.getSelectedItem();
+        //String groupName = (String) groupCombo.getSelectedItem();
 
-        Group group = getGroup(groupName);
+        Group group = getGroup();
 
         archetypeVersionLabel.setText(group.getVersion());
         List archetypes = group.getArchetypes();
@@ -208,13 +202,15 @@ public class ArchetypesPanel extends JPanel {
   }
 
   public List<Group> getGroups() {
-    return getConfiguration().getArchetypesReader().getGroups();
+    return archetypesReader.getGroups();
   }
 
-  private Group getGroup(String groupName) {
+  public Group getGroup() {
+      String groupName = (String)groupCombo.getSelectedItem();
+
     Group group = null;
 
-    List<Group> groups = getConfiguration().getArchetypesReader().getGroups();
+    List<Group> groups = archetypesReader.getGroups();
 
     for (int i = 0; i < groups.size() && group == null; i++) {
       Group g = groups.get(i);
@@ -227,18 +223,12 @@ public class ArchetypesPanel extends JPanel {
     return group;
   }
 
-  public String getWorkingDirectory() {
-    return workingDir.getText();
-  }
+   public Archetype getArchetype() {
+    String archetypeName = (String)archetypeCombo.getSelectedItem();
 
-  public void setWorkingDirectory(String workingDirectory) {
-    this.workingDir.setText(workingDirectory);
-  }
-
-   private Archetype getArchetype(String groupName, String archetypeName) {
     Archetype archetype = null;
 
-    Group group = getGroup(groupName);
+    Group group = getGroup();
 
     List archetypes = group.getArchetypes();
 
@@ -253,19 +243,24 @@ public class ArchetypesPanel extends JPanel {
     return archetype;
   }
 
-  public void createArchetype() {
-    try {
-      archetypes.createArchetype(
-      getGroup((String)groupCombo.getSelectedItem()),
-      getArchetype((String)groupCombo.getSelectedItem(),
-                         (String)archetypeCombo.getSelectedItem()),
-      groupIdField.getText(),
-      artifactIdField.getText(),
-      versionField.getText(),
-      workingDir.getText());
-    } catch (Exception e) {
-      e.printStackTrace(); 
-    }
+  public String getGroupId() {
+    return groupIdField.getText();
+  }
+
+  public String getArtifactId() {
+    return artifactIdField.getText();
+  }
+
+  public String getVersion() {
+    return versionField.getText();
+  }
+
+  public String getWorkingDirectory() {
+    return workingDir.getText();
+  }
+
+  public void setWorkingDirectory(String workingDirectory) {
+    this.workingDir.setText(workingDirectory);
   }
 
 }
