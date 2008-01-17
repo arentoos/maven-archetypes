@@ -29,11 +29,17 @@ public class GuiArchetypes extends CoreArchetypes {
 
     createButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-        try {
-          archetypesPanel.createArchetype();
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
+   try {
+      createArchetype(
+      archetypesPanel.getGroup(),
+      archetypesPanel.getArchetype(),
+      archetypesPanel.getGroupId(),
+      archetypesPanel.getArtifactId(),
+      archetypesPanel.getVersion(),
+      archetypesPanel.getWorkingDirectory());
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
       }
     });
 
@@ -53,7 +59,7 @@ public class GuiArchetypes extends CoreArchetypes {
    JPanel panel1 = new JPanel();
     panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
 
-    archetypesPanel = new ArchetypesPanel(configuration, this);
+    archetypesPanel = new ArchetypesPanel(configuration.getArchetypesReader());
 
     panel1.add(Box.createRigidArea(new Dimension(10, 0)));
     panel1.add(archetypesPanel);
