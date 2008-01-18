@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
-import java.io.File;
+import java.io.*;
 
 /**
  * This class represents archetypes panel.
@@ -31,6 +31,8 @@ public class ArchetypesPanel extends JPanel {
   private JTextField artifactIdField = new JTextField(15);
   private JTextField versionField = new JTextField(15);
 
+  private Console console = new Console();
+
   protected ArchetypesReader archetypesReader;
 
   public ArchetypesPanel(ArchetypesReader archetypesReader) {
@@ -46,10 +48,10 @@ public class ArchetypesPanel extends JPanel {
     workingDir.setText(fileChooser.getCurrentDirectory().getPath());
 
     JPanel topPanel = fillPanel();
-    JScrollPane scrollPane = new JScrollPane(topPanel);
+    //JScrollPane scrollPane = new JScrollPane(topPanel);
 
     this.setLayout(new BorderLayout());
-    this.add(scrollPane, BorderLayout.NORTH);
+    this.add(topPanel, BorderLayout.NORTH);
 
     resetControls();
   }
@@ -172,6 +174,13 @@ public class ArchetypesPanel extends JPanel {
     panel8.add(versionField);
     panel8.add(Box.createRigidArea(new Dimension(10, 0)));
 
+    JPanel panel9 = new JPanel();
+    panel9.setLayout(new BoxLayout(panel9, BoxLayout.X_AXIS));
+
+    panel9.add(Box.createRigidArea(new Dimension(10, 0)));
+    panel9.add(new JScrollPane(console.getComponent()));
+    panel9.add(Box.createRigidArea(new Dimension(10, 0)));
+
     // top panel
     JPanel topPanel = new JPanel();
 
@@ -195,7 +204,7 @@ public class ArchetypesPanel extends JPanel {
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
     topPanel.add(panel8);
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-  // topPanel.add(panel9);
+    topPanel.add(panel9);
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 
     return topPanel;
@@ -261,6 +270,10 @@ public class ArchetypesPanel extends JPanel {
 
   public void setWorkingDirectory(String workingDirectory) {
     this.workingDir.setText(workingDirectory);
+  }
+
+  public Console getConsole() {
+    return console;
   }
 
 }

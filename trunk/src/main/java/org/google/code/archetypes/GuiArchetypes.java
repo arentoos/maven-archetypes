@@ -3,9 +3,9 @@ package org.google.code.archetypes;
 import org.codehaus.classworlds.ClassWorld;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.*;
 
 /**
  * This class represents archetypes frame.
@@ -20,26 +20,33 @@ public class GuiArchetypes extends CoreArchetypes {
 
   private JButton createButton = new JButton("Create archetype...");
   private JButton closeButton = new JButton("Close");
+  private JButton clearButton = new JButton("Clear Console");
 
   public GuiArchetypes(ClassWorld classWorld, Configuration configuration) {
     super(classWorld, configuration);
 
-    frame.setSize(800, 700);
+    frame.setSize(850, 750);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     createButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-   try {
-      createArchetype(
-      archetypesPanel.getGroup(),
-      archetypesPanel.getArchetype(),
-      archetypesPanel.getGroupId(),
-      archetypesPanel.getArtifactId(),
-      archetypesPanel.getVersion(),
-      archetypesPanel.getWorkingDirectory());
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+        try {
+          createArchetype(
+              archetypesPanel.getGroup(),
+              archetypesPanel.getArchetype(),
+              archetypesPanel.getGroupId(),
+              archetypesPanel.getArtifactId(),
+              archetypesPanel.getVersion(),
+              archetypesPanel.getWorkingDirectory());
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    });
+
+    clearButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        archetypesPanel.getConsole().clear();
       }
     });
 
@@ -48,6 +55,7 @@ public class GuiArchetypes extends CoreArchetypes {
         System.exit(0);
       }
     });
+
     JPanel topPanel = createPanel();
 
     frame.setContentPane(topPanel);
@@ -56,7 +64,7 @@ public class GuiArchetypes extends CoreArchetypes {
   private JPanel createPanel() {
     // panel 1
 
-   JPanel panel1 = new JPanel();
+    JPanel panel1 = new JPanel();
     panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
 
     archetypesPanel = new ArchetypesPanel(configuration.getArchetypesReader());
@@ -72,6 +80,8 @@ public class GuiArchetypes extends CoreArchetypes {
 
     panel2.add(Box.createRigidArea(new Dimension(10, 0)));
     panel2.add(createButton);
+    panel2.add(Box.createRigidArea(new Dimension(10, 0)));
+    panel2.add(clearButton);
     panel2.add(Box.createRigidArea(new Dimension(10, 0)));
     panel2.add(closeButton);
     panel2.add(Box.createRigidArea(new Dimension(10, 0)));
@@ -91,6 +101,8 @@ public class GuiArchetypes extends CoreArchetypes {
 
   public void interact() throws Exception {
     frame.setVisible(true);
+
+    Thread.currentThread().join();
   }
 
 }
