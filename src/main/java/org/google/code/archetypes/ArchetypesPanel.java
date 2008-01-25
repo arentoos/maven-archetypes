@@ -6,6 +6,8 @@ import org.google.code.archetypes.model.ArchetypeModel;
 import org.google.code.archetypes.model.GroupModel;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
@@ -23,8 +25,8 @@ public class ArchetypesPanel extends JPanel {
 
   private JFileChooser fileChooser = new JFileChooser();
 
-  private JComboBox groupCombo = new JComboBox();
-  private JComboBox archetypeCombo = new JComboBox();
+  private JList groupList = new JList();
+  private JList archetypeList = new JList();
   private JLabel archetypeVersionLabel = new JLabel();
 
   private JTextField groupIdField = new JTextField(15);
@@ -53,29 +55,57 @@ public class ArchetypesPanel extends JPanel {
     this.setLayout(new BorderLayout());
     this.add(topPanel, BorderLayout.NORTH);
 
+    groupList.setVisibleRowCount(10);
+    archetypeList.setVisibleRowCount(10);
+
     resetControls();
   }
 
   public void resetControls() {
-    groupCombo.setModel(new GroupModel(archetypesReader.getGroups()));
+    groupList.setModel(new GroupModel(archetypesReader.getGroups()));
 
-    groupCombo.addItemListener(new ItemListener() {
-      public void itemStateChanged(ItemEvent e) {
-        //String groupName = (String) groupCombo.getSelectedItem();
-
+    final ListSelectionListener archetypeListener = new ListSelectionListener() {
+      public void valueChanged(ListSelectionEvent e) {
         Group group = getGroup();
-
-        archetypeVersionLabel.setText(group.getVersion());
         List archetypes = group.getArchetypes();
 
-        archetypeCombo.setModel(new ArchetypeModel(archetypes));
-        archetypeCombo.setSelectedIndex(0);
+        Archetype archetype = (Archetype)archetypes.get(archetypeList.getSelectedIndex());
+        String version = archetype.getVersion();
+
+        if(version == null || version.equalsIgnoreCase(ArchetypesReader.UNKNOWN_VERSION)) {
+          version = group.getVersion();
+        }
+
+        archetypeVersionLabel.setText(version);
       }
-    });
+    };
 
-    groupCombo.setSelectedIndex(0);
+    ListSelectionListener groupListener = new ListSelectionListener() {
+      public void valueChanged(ListSelectionEvent e) {
+        Group group = getGroup();
+        List archetypes = group.getArchetypes();
+
+        archetypeList.removeListSelectionListener(archetypeListener);
+        archetypeList.setModel(new ArchetypeModel(archetypes));
+        archetypeList.addListSelectionListener(archetypeListener);
+        archetypeList.setSelectedIndex(0);
+
+        String version = group.getVersion();
+
+        if(version.equalsIgnoreCase(ArchetypesReader.UNKNOWN_VERSION)) {
+          Archetype archetype = (Archetype)archetypes.get(archetypeList.getSelectedIndex());
+          version = archetype.getVersion();
+        }
+
+        archetypeVersionLabel.setText(version);
+      }
+    };
+
+    groupList.addListSelectionListener(groupListener);
+    archetypeList.addListSelectionListener(archetypeListener);
+
+    groupList.setSelectedIndex(0);
   }
-
 
   private JPanel fillPanel() {
     // panel 0
@@ -112,21 +142,17 @@ public class ArchetypesPanel extends JPanel {
     panel1.add(new JPanel());
     panel1.add(Box.createRigidArea(new Dimension(10, 0)));
 
-   JPanel panel2 = new JPanel();
+    JPanel panel2 = new JPanel();
     panel2.setLayout(new BoxLayout(panel2, BoxLayout.X_AXIS));
     panel2.add(Box.createRigidArea(new Dimension(10, 0)));
     panel2.add(new JLabel("Group ID: "));
     panel2.add(Box.createRigidArea(new Dimension(10, 0)));
-    panel2.add(groupCombo);
+    panel2.add(new JScrollPane(groupList));
     panel2.add(Box.createRigidArea(new Dimension(10, 0)));
-
-   JPanel panel3 = new JPanel();
-    panel3.setLayout(new BoxLayout(panel3, BoxLayout.X_AXIS));
-    panel3.add(Box.createRigidArea(new Dimension(10, 0)));
-    panel3.add(new JLabel("Artifact ID:  "));
-    panel3.add(Box.createRigidArea(new Dimension(10, 0)));
-    panel3.add(archetypeCombo);
-    panel3.add(Box.createRigidArea(new Dimension(10, 0)));
+    panel2.add(new JLabel("Artifact ID:  "));
+    panel2.add(Box.createRigidArea(new Dimension(10, 0)));
+    panel2.add(new JScrollPane(archetypeList));
+    panel2.add(Box.createRigidArea(new Dimension(10, 0)));
 
     JPanel panel4 = new JPanel();
     panel4.setLayout(new BoxLayout(panel4, BoxLayout.X_AXIS));
@@ -190,9 +216,7 @@ public class ArchetypesPanel extends JPanel {
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
     topPanel.add(panel1);
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-   topPanel.add(panel2);
-    topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-   topPanel.add(panel3);
+    topPanel.add(panel2);
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
     topPanel.add(panel4);
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -215,7 +239,7 @@ public class ArchetypesPanel extends JPanel {
   }
 
   public Group getGroup() {
-      String groupName = (String)groupCombo.getSelectedItem();
+    String groupName = (String) groupList.getSelectedValue();
 
     Group group = null;
 
@@ -233,7 +257,7 @@ public class ArchetypesPanel extends JPanel {
   }
 
    public Archetype getArchetype() {
-    String archetypeName = (String)archetypeCombo.getSelectedItem();
+    String archetypeName = (String) archetypeList.getSelectedValue();
 
     Archetype archetype = null;
 

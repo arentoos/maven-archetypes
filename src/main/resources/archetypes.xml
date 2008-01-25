@@ -208,4 +208,31 @@
     </repositories>
   </group>
 
+  <group name="Flex2" groupId="dk.jacobve.maven.archetypes" prefix="maven-archetype-" version="1.0">
+    <notes>
+      http://ancientprogramming.blogspot.com/2007/11/quickstart-flex-development-with-this.html
+    </notes>
+    <archetypes>
+      <archetype name="flex" description="A simple Flex2 application"/>
+    </archetypes>
+  </group>
+
+  <group name="Terracota" groupId="org.terracotta.maven.archetypes" version="1.0.3">
+    <notes>
+      http://forge.terracotta.org/projects/tim-archetype
+      http://forge.terracotta.org/projects/pojo-archetype
+      http://forge.terracotta.org/projects/webapp-archetype
+    </notes>
+
+    <archetypes>
+      <archetype name="tim-archetype" version="1.0.3" description="Terracotta Integrations Module"/>
+      <archetype name="pojo-archetype" version="1.0.2" description="Terracotta POJO Module"/>
+      <archetype name="webapp-archetype" version="1.0.2" description="Terracotta WebApp Module"/>
+    </archetypes>
+
+    <repositories>
+      <repository>http://www.terracotta.org/download/reflector/maven2</repository>
+    </repositories>
+  </group>
+
 </groups>
