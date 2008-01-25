@@ -49,7 +49,16 @@ if not exist %LAUNCHER_HOME%/classworlds.conf (
   %JAVA_HOME%\bin\java -Djlaunchpad.install.root=%JLAUNCHPAD_PROJECT% -classpath %CLASSPATH% %SYSTEM_PROPERTIES% %MAIN_CLASS%
 )
 
+
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dclassworlds.conf=%LAUNCHER_HOME%\classworlds.conf
+
+SET PROPERTIES1="-deps.file.name=pom.xml" 
+SET PROPERTIES1=%PROPERTIES1% "-main.class.name=org.sf.pomreader.ProjectInstaller"
+
+rem @call %LAUNCHER_HOME%\launcher.bat %SYSTEM_PROPERTIES% %PROPERTIES1% "-Dbasedir=." "-Dbuild.required=false"
+
+%JAVA_HOME%\bin\java %SYSTEM_PROPERTIES% -Djava.specification.version.level=1.5 -classpath %REPOSITORY_HOME%/classworlds/classworlds/%CLASSWORLDS_VERSION%/classworlds-%CLASSWORLDS_VERSION%.jar org.codehaus.classworlds.Launcher %PROPERTIES1% "-Dbasedir=." "-Dbuild.required=true"
+
 
 IF NOT "%PROXY_SERVER_HOST_NAME" == "" (
   SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -DproxySet=true -DproxyHost=%PROXY_SERVER_HOST_NAME% -DproxyPort=%PROXY_SERVER_PORT%
@@ -63,4 +72,5 @@ SET MAIN_CLASS=org.google.code.archetypes.Main
 
 SET PROPERTIES="-deps.file.name=%~dp0deps.xml" "-main.class.name=%MAIN_CLASS%"
 
-%JAVA_HOME%/bin/java.exe %SYSTEM_PROPERTIES% -classpath %REPOSITORY_HOME%/classworlds/classworlds/%CLASSWORLDS_VERSION%/classworlds-%CLASSWORLDS_VERSION%.jar org.codehaus.classworlds.Launcher %PROPERTIES% -wait %*
+%JAVA_HOME%/bin/java.exe %SYSTEM_PROPERTIES% -Dprogram.name=%PROGNAME% -classpath %REPOSITORY_HOME%/classworlds/classworlds/%CLASSWORLDS_VERSION%/classworlds-%CLASSWORLDS_VERSION%.jar org.codehaus.classworlds.Launcher %PROPERTIES% -wait %*
+rem -Xdebug -Xrunjdwp:transport=dt_socket,address=5005,suspend=y,server=y 

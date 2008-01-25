@@ -20,6 +20,7 @@ import java.util.List;
  * @version 1.0 11/17/2007
  */
 public class ArchetypesReader extends XmlHelper {
+  public static final String UNKNOWN_VERSION = "unknown";
 
   private List<Group> groups = new ArrayList<Group>();
 
@@ -58,7 +59,15 @@ public class ArchetypesReader extends XmlHelper {
   private Group readGroup(Element element) {
     String name = element.getAttribute("name").getValue();
     String groupId = element.getAttribute("groupId").getValue();
-    String version = element.getAttribute("version").getValue();
+
+    String version;
+
+    if(element.getAttribute("version") != null) {
+      version = element.getAttribute("version").getValue();
+    }
+    else {
+      version = UNKNOWN_VERSION;
+    }
 
     Attribute prefixAttribute = element.getAttribute("prefix");
 
@@ -80,9 +89,9 @@ public class ArchetypesReader extends XmlHelper {
     List<Archetype> archetypes = group.getArchetypes();
     archetypes.clear();
 
-    List children1 = getElementByName(element, "archetypes").getChildren();
+    List children = getElementByName(element, "archetypes").getChildren();
 
-    for (Object o : children1) {
+    for (Object o : children) {
       if (o instanceof Element) {
         archetypes.add(readArchetype((Element) o, group));
       }

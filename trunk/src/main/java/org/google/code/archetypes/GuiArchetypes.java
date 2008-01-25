@@ -30,17 +30,24 @@ public class GuiArchetypes extends CoreArchetypes {
 
     createButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-        try {
-          createArchetype(
-              archetypesPanel.getGroup(),
-              archetypesPanel.getArchetype(),
-              archetypesPanel.getGroupId(),
-              archetypesPanel.getArtifactId(),
-              archetypesPanel.getVersion(),
-              archetypesPanel.getWorkingDirectory());
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
+
+        Thread thread = new Thread() {
+          public void run() {
+            try {
+              createArchetype(
+                  archetypesPanel.getGroup(),
+                  archetypesPanel.getArchetype(),
+                  archetypesPanel.getGroupId(),
+                  archetypesPanel.getArtifactId(),
+                  archetypesPanel.getVersion(),
+                  archetypesPanel.getWorkingDirectory());
+            } catch (Exception e) {
+              e.printStackTrace();
+            }
+          }
+        };
+
+        thread.start();
       }
     });
 

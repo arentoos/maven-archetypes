@@ -11,8 +11,7 @@ import javax.swing.*;
  * @author Alexander Shvets
  * @version 1.0 11/17/2007
  */
-public class GroupModel extends AbstractListModel
-    implements ComboBoxModel {
+public class GroupModel extends AbstractListModel {
   protected Object selectedObject;
 
   protected List list;
