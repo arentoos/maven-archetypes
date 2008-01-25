@@ -9,9 +9,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.List;
-import java.io.*;
 
 /**
  * This class represents archetypes panel.
@@ -20,10 +18,7 @@ import java.io.*;
  * @version 1.0 11/17/2007
  */
 public class ArchetypesPanel extends JPanel {
-  private JTextField workingDir = new JTextField();
-  private JButton browseButton = new JButton("...");
-
-  private JFileChooser fileChooser = new JFileChooser();
+  private TextFieldWithButton workingDir = new TextFieldWithButton("...");
 
   private JList groupList = new JList();
   private JList archetypeList = new JList();
@@ -43,11 +38,6 @@ public class ArchetypesPanel extends JPanel {
     groupIdField.setText("org.test");
     artifactIdField.setText("test");
     versionField.setText("1.0");
-
-    fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-    fileChooser.setCurrentDirectory(new File("c:/temp"));
-
-    workingDir.setText(fileChooser.getCurrentDirectory().getPath());
 
     JPanel topPanel = fillPanel();
     //JScrollPane scrollPane = new JScrollPane(topPanel);
@@ -107,6 +97,14 @@ public class ArchetypesPanel extends JPanel {
     groupList.setSelectedIndex(0);
   }
 
+  public TextFieldWithButton getWorkingDirComponent() {
+    return workingDir;
+  }
+
+  public Console getConsole() {
+    return console;
+  }
+
   private JPanel fillPanel() {
     // panel 0
 
@@ -115,23 +113,8 @@ public class ArchetypesPanel extends JPanel {
 
     panel0.add(Box.createRigidArea(new Dimension(10, 0)));
     panel0.add(new JLabel("Working Directory: "));
-    panel0.add(workingDir);
+    panel0.add(getWorkingDirComponent().getComponent());
     panel0.add(Box.createRigidArea(new Dimension(10, 0)));
-    panel0.add(browseButton);
-    panel0.add(Box.createRigidArea(new Dimension(10, 0)));
-
-    browseButton.addActionListener(new ActionListener() {
-
-      public void actionPerformed(ActionEvent e) {
-        int returnVal = fileChooser.showOpenDialog(ArchetypesPanel.this);
-
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-          File file = fileChooser.getSelectedFile();
-
-          workingDir.setText(file.getPath());
-        }
-   }
-    });
 
     JPanel panel1 = new JPanel();
     panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
@@ -145,14 +128,18 @@ public class ArchetypesPanel extends JPanel {
     JPanel panel2 = new JPanel();
     panel2.setLayout(new BoxLayout(panel2, BoxLayout.X_AXIS));
     panel2.add(Box.createRigidArea(new Dimension(10, 0)));
-    panel2.add(new JLabel("Group ID: "));
+    panel2.add(new JLabel("Group ID/Artifact ID: "));
     panel2.add(Box.createRigidArea(new Dimension(10, 0)));
-    panel2.add(new JScrollPane(groupList));
+    panel2.add(new JPanel());
     panel2.add(Box.createRigidArea(new Dimension(10, 0)));
-    panel2.add(new JLabel("Artifact ID:  "));
+
+    JPanel panel3 = new JPanel();
+    panel3.setLayout(new BoxLayout(panel3, BoxLayout.X_AXIS));
     panel2.add(Box.createRigidArea(new Dimension(10, 0)));
-    panel2.add(new JScrollPane(archetypeList));
-    panel2.add(Box.createRigidArea(new Dimension(10, 0)));
+    panel3.add(new JScrollPane(groupList));
+    panel3.add(Box.createRigidArea(new Dimension(10, 0)));
+    panel3.add(new JScrollPane(archetypeList));
+    panel3.add(Box.createRigidArea(new Dimension(10, 0)));
 
     JPanel panel4 = new JPanel();
     panel4.setLayout(new BoxLayout(panel4, BoxLayout.X_AXIS));
@@ -203,9 +190,11 @@ public class ArchetypesPanel extends JPanel {
     JPanel panel9 = new JPanel();
     panel9.setLayout(new BoxLayout(panel9, BoxLayout.X_AXIS));
 
-    panel9.add(Box.createRigidArea(new Dimension(10, 0)));
-    panel9.add(new JScrollPane(console.getComponent()));
-    panel9.add(Box.createRigidArea(new Dimension(10, 0)));
+    if(getConsole() != null) {
+      panel9.add(Box.createRigidArea(new Dimension(10, 0)));
+      panel9.add(new JScrollPane(console.getComponent()));
+      panel9.add(Box.createRigidArea(new Dimension(10, 0)));
+    }
 
     // top panel
     JPanel topPanel = new JPanel();
@@ -218,6 +207,8 @@ public class ArchetypesPanel extends JPanel {
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
     topPanel.add(panel2);
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+    topPanel.add(panel3);
+    topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
     topPanel.add(panel4);
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
     topPanel.add(panel5);
@@ -228,8 +219,11 @@ public class ArchetypesPanel extends JPanel {
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
     topPanel.add(panel8);
     topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-    topPanel.add(panel9);
-    topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+
+    if(getConsole() != null) {
+      topPanel.add(panel9);
+      topPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+    }
 
     return topPanel;
   }
@@ -289,15 +283,11 @@ public class ArchetypesPanel extends JPanel {
   }
 
   public String getWorkingDirectory() {
-    return workingDir.getText();
+    return workingDir.getTextField().getText();
   }
 
   public void setWorkingDirectory(String workingDirectory) {
-    this.workingDir.setText(workingDirectory);
-  }
-
-  public Console getConsole() {
-    return console;
+    this.workingDir.getTextField().setText(workingDirectory);
   }
 
 }
