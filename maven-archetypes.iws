@@ -83,7 +83,7 @@
       <file leaf-file-name="ArchetypesPanel.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/ArchetypesPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="220" column="23" selection-start="7806" selection-end="7806" vertical-scroll-proportion="0.5485232">
+            <state line="54" column="15" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.43271223">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,92 +91,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArchetypeModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/model/ArchetypeModel.java">
+      <file leaf-file-name="archetypes.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/archetypes.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="471" selection-end="471" vertical-scroll-proportion="0.29852322">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.9162247">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemEvent.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Java/jdk1.6.0/src.zip!/java/awt/event/ItemEvent.java">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="13" selection-start="1306" selection-end="1306" vertical-scroll-proportion="0.020042194">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Console.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/Console.java">
+      <file leaf-file-name="TextFieldWithButton.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/TextFieldWithButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="26" selection-start="1251" selection-end="1251" vertical-scroll-proportion="0.664557">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="13" selection-start="207" selection-end="207" vertical-scroll-proportion="0.20042194">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CoreArchetypes.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/CoreArchetypes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="22" selection-start="428" selection-end="428" vertical-scroll-proportion="0.020042194">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConsoleArchetypes.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/ConsoleArchetypes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="419" selection-end="419" vertical-scroll-proportion="0.020042194">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GuiArchetypes.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/GuiArchetypes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="319" selection-end="319" vertical-scroll-proportion="0.020042194">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArchetypesReader.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/ArchetypesReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="32" selection-start="1667" selection-end="1667" vertical-scroll-proportion="0.020042194">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Group.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/data/Group.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="13" selection-start="222" selection-end="222" vertical-scroll-proportion="0.020042194">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Configuration.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/Configuration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="259" selection-end="259" vertical-scroll-proportion="0.020042194">
-              <folding />
+            <state line="40" column="60" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.5672878">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -238,190 +177,6 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\resources" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java\org\google\code\archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java\org\google\code\archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java\org\google\code\archetypes\util" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java\org\google\code\archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java\org\google\code\archetypes\model" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java\org\google\code\archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\java\org\google\code\archetypes\data" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\maven-projects\maven-archetypes\src\main\assembly" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
     </subPane>
   </component>
   <component name="ProjectReloadState">
@@ -467,35 +222,6 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="ADDITIONAL_CLASS_PATH" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="wholeProject" />
-      </option>
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method>
-        <option name="Make" value="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myCoreSettings">
@@ -537,6 +263,35 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="ADDITIONAL_CLASS_PATH" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method>
+        <option name="Make" value="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
       <module name="" />
@@ -686,7 +441,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="Dilbert" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
-      <window_info id="Archetypes" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993016" order="8" />
+      <window_info id="Archetypes" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32957596" order="8" />
       <window_info id="SQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998997" order="1" />
@@ -767,39 +522,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Java/jdk1.6.0/src.zip!/javax/swing/JFileChooser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/model/ArchetypeModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="44" selection-start="3746" selection-end="3762" vertical-scroll-proportion="0.35281616">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/util/XmlHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="429" selection-end="429" vertical-scroll-proportion="0.020042194">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/data/Archetype.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="164" selection-end="164" vertical-scroll-proportion="0.16033755">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Java/jdk1.6.0/src.zip!/javax/swing/JList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="458" column="11" selection-start="17683" selection-end="17683" vertical-scroll-proportion="-0.2278481">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/model/GroupModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="50" selection-start="319" selection-end="319" vertical-scroll-proportion="0.20042194">
+        <state line="21" column="0" selection-start="471" selection-end="471" vertical-scroll-proportion="0.34388185">
           <folding />
         </state>
       </provider>
@@ -827,7 +552,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/CoreArchetypes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="22" selection-start="428" selection-end="428" vertical-scroll-proportion="0.020042194">
+        <state line="16" column="22" selection-start="428" selection-end="428" vertical-scroll-proportion="-0.10232068">
           <folding />
         </state>
       </provider>
@@ -841,14 +566,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/GuiArchetypes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="319" selection-end="319" vertical-scroll-proportion="0.020042194">
+        <state line="15" column="13" selection-start="319" selection-end="319" vertical-scroll-proportion="0.20042194">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/ArchetypesReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="32" selection-start="1667" selection-end="1667" vertical-scroll-proportion="0.020042194">
+        <state line="26" column="49" selection-start="704" selection-end="704" vertical-scroll-proportion="0.30063292">
           <folding />
         </state>
       </provider>
@@ -867,16 +592,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/model/ArchetypeModel.java">
+    <entry file="jar://C:/Java/jdk1.6.0/src.zip!/javax/swing/AbstractButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="471" selection-end="471" vertical-scroll-proportion="0.29852322">
+        <state line="2090" column="16" selection-start="74283" selection-end="74283" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.6.0/src.zip!/java/awt/event/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="17" selection-start="855" selection-end="855" vertical-scroll-proportion="0.43271223">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/TextFieldWithButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="60" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.5672878">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/archetypes.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.9162247">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/google/code/archetypes/ArchetypesPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="23" selection-start="7806" selection-end="7806" vertical-scroll-proportion="0.5485232">
+        <state line="54" column="15" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.43271223">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
