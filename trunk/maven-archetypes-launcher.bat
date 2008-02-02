@@ -4,21 +4,23 @@ SET CURRENT_DIR=%~dp0
 
 SET DRIVE_LETTER=c:
 
-set JAVA_HOME=%DRIVE_LETTER%/Java/jdk1.6.0_N
-SET REPOSITORY_HOME=%DRIVE_LETTER%\maven-repository
+set JAVA_HOME=%DRIVE_LETTER%/Java/jdk1.6.0
+SET REPOSITORY_HOME=%DRIVE_LETTER%/maven-repository
 SET LAUNCHER_HOME=%CURRENT_DIR%launcher
 
-SET JLAUNCHPAD_PROJECT=%CURRENT_DIR%jlaunchpad-1.0.1
-
-SET PROXY_SERVER_HOST_NAME=
-SET PROXY_SERVER_PORT=
-SET PROXY_USER=
-SET PROXY_PASSWORD=
+SET DEBUG_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,address=5005,suspend=y,server=y 
 
 SET LAUNCHER_VERSION=1.0.1
 SET CLASSWORLDS_VERSION=1.1
 SET JDOM_VERSION=1.1
 SET BOOTSTRAP_MINI_VERSION=2.0.8
+
+SET JLAUNCHPAD_PROJECT=%CURRENT_DIR%jlaunchpad-%LAUNCHER_VERSION%
+
+SET PROXY_SERVER_HOST_NAME=
+SET PROXY_SERVER_PORT=
+SET PROXY_USER=
+SET PROXY_PASSWORD=
 
 SET SYSTEM_PROPERTIES=-Dlauncher.version=%LAUNCHER_VERSION%
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Djdom.version=%JDOM_VERSION%
@@ -26,6 +28,15 @@ SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dbootstrap-mini.version=%BOOTSTRAP_MI
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Drepository.home=%REPOSITORY_HOME%
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dlauncher.home=%LAUNCHER_HOME%
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Drepository.home=%REPOSITORY_HOME%
+SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Djava.specification.version.level=1.5
+
+IF NOT "%PROXY_SERVER_HOST_NAME" == "" (
+  SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -DproxySet=true -DproxyHost=%PROXY_SERVER_HOST_NAME% -DproxyPort=%PROXY_SERVER_PORT%
+)
+
+IF NOT "%PROXY_USER" == "" (
+  SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -DproxyUser=%PROXY_USER% -DproxyPassword=%PROXY_PASSWORD%
+)
 
 SET BOOTSTRAP_MINI_PROJECT=%JLAUNCHPAD_PROJECT%\projects\bootstrap-mini
 SET POM_READER_PROJECT=%JLAUNCHPAD_PROJECT%\projects\pom-reader
@@ -49,28 +60,15 @@ if not exist %LAUNCHER_HOME%/classworlds.conf (
   %JAVA_HOME%\bin\java -Djlaunchpad.install.root=%JLAUNCHPAD_PROJECT% -classpath %CLASSPATH% %SYSTEM_PROPERTIES% %MAIN_CLASS%
 )
 
+SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dclassworlds.conf=%LAUNCHER_HOME%/classworlds.conf
 
-SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dclassworlds.conf=%LAUNCHER_HOME%\classworlds.conf
+SET CLASSPATH=%REPOSITORY_HOME%/classworlds/classworlds/%CLASSWORLDS_VERSION%/classworlds-%CLASSWORLDS_VERSION%.jar
 
-SET PROPERTIES1="-deps.file.name=pom.xml" 
-SET PROPERTIES1=%PROPERTIES1% "-main.class.name=org.sf.pomreader.ProjectInstaller"
+SET PROPERTIES="-deps.file.name=%REPOSITORY_HOME%/org/sf/jlaunchpad/jlaunchpad-launcher/1.0.1/jlaunchpad-launcher-1.0.1.pom" 
+SET PROPERTIES=%PROPERTIES% "-main.class.name=org.sf.pomreader.ProjectInstaller"
 
-rem @call %LAUNCHER_HOME%\launcher.bat %SYSTEM_PROPERTIES% %PROPERTIES1% "-Dbasedir=." "-Dbuild.required=false"
+%JAVA_HOME%\bin\java %SYSTEM_PROPERTIES% -classpath %CLASSPATH% org.codehaus.classworlds.Launcher %PROPERTIES% "-Dbasedir=." "-Dbuild.required=true"
 
-%JAVA_HOME%\bin\java %SYSTEM_PROPERTIES% -Djava.specification.version.level=1.5 -classpath %REPOSITORY_HOME%/classworlds/classworlds/%CLASSWORLDS_VERSION%/classworlds-%CLASSWORLDS_VERSION%.jar org.codehaus.classworlds.Launcher %PROPERTIES1% "-Dbasedir=." "-Dbuild.required=true"
+SET PROPERTIES2="-deps.file.name=%~dp0deps.xml" "-main.class.name=org.google.code.archetypes.Main"
 
-
-IF NOT "%PROXY_SERVER_HOST_NAME" == "" (
-  SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -DproxySet=true -DproxyHost=%PROXY_SERVER_HOST_NAME% -DproxyPort=%PROXY_SERVER_PORT%
-)
-
-IF NOT "%PROXY_USER" == "" (
-  SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -DproxyUser=%PROXY_USER% -DproxyPassword=%PROXY_PASSWORD%
-)
-
-SET MAIN_CLASS=org.google.code.archetypes.Main
-
-SET PROPERTIES="-deps.file.name=%~dp0deps.xml" "-main.class.name=%MAIN_CLASS%"
-
-%JAVA_HOME%/bin/java.exe %SYSTEM_PROPERTIES% -Dprogram.name=%PROGNAME% -classpath %REPOSITORY_HOME%/classworlds/classworlds/%CLASSWORLDS_VERSION%/classworlds-%CLASSWORLDS_VERSION%.jar org.codehaus.classworlds.Launcher %PROPERTIES% -wait %*
-rem -Xdebug -Xrunjdwp:transport=dt_socket,address=5005,suspend=y,server=y 
+%JAVA_HOME%/bin/java.exe %SYSTEM_PROPERTIES% -classpath %CLASSPATH% org.codehaus.classworlds.Launcher %PROPERTIES2% -wait %*

@@ -37,7 +37,7 @@ public class Console {
     JPanel panel11 = new JPanel();
     panel11.setLayout(new BoxLayout(panel11, BoxLayout.X_AXIS));
 
-    consoleArea.setRows(22);
+    consoleArea.setRows(12);
     consoleArea.setColumns(75);
   }
 
