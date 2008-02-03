@@ -6,27 +6,27 @@ SET DRIVE_LETTER=c:
 
 set JAVA_HOME=%DRIVE_LETTER%/Java/jdk1.6.0
 SET REPOSITORY_HOME=%DRIVE_LETTER%/maven-repository
-SET LAUNCHER_HOME=%CURRENT_DIR%launcher
+SET JLAUNCHPAD_HOME=%CURRENT_DIR%jlaunchpad
 
-SET DEBUG_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,address=5005,suspend=y,server=y 
+SET DEBUG_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,address=5005,suspend=y,server=y
 
-SET LAUNCHER_VERSION=1.0.1
+SET JLAUNCHPAD_VERSION=1.0.1
 SET CLASSWORLDS_VERSION=1.1
 SET JDOM_VERSION=1.1
 SET BOOTSTRAP_MINI_VERSION=2.0.8
 
-SET JLAUNCHPAD_PROJECT=%CURRENT_DIR%jlaunchpad-%LAUNCHER_VERSION%
+SET JLAUNCHPAD_PROJECT=%CURRENT_DIR%jlaunchpad-%JLAUNCHPAD_VERSION%
 
 SET PROXY_SERVER_HOST_NAME=
 SET PROXY_SERVER_PORT=
 SET PROXY_USER=
 SET PROXY_PASSWORD=
 
-SET SYSTEM_PROPERTIES=-Dlauncher.version=%LAUNCHER_VERSION%
+SET SYSTEM_PROPERTIES=-Djlaunchpad.version=%JLAUNCHPAD_VERSION%
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Djdom.version=%JDOM_VERSION%
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dbootstrap-mini.version=%BOOTSTRAP_MINI_VERSION%
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Drepository.home=%REPOSITORY_HOME%
-SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dlauncher.home=%LAUNCHER_HOME%
+SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Djlaunchpad.home=%JLAUNCHPAD_HOME%
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Drepository.home=%REPOSITORY_HOME%
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Djava.specification.version.level=1.5
 
@@ -51,23 +51,23 @@ SET CLASSPATH=%CLASSPATH%;%JLAUNCHPAD_LAUNCHER_PROJECT%\target\jlaunchpad-launch
 SET CLASSPATH=%CLASSPATH%;%JDOM_PROJECT%\target\jdom.jar
 
 if not exist %JLAUNCHPAD_PROJECT% (
-  %JAVA_HOME%/bin/jar xvf jlaunchpad-%LAUNCHER_VERSION%-install.zip
+  %JAVA_HOME%/bin/jar xvf jlaunchpad-%JLAUNCHPAD_VERSION%-install.zip
 )
 
 SET MAIN_CLASS=org.sf.jlaunchpad.install.CoreInstaller
 
-if not exist %LAUNCHER_HOME%/classworlds.conf (
+if not exist %JLAUNCHPAD_HOME%/classworlds.conf (
   %JAVA_HOME%\bin\java -Djlaunchpad.install.root=%JLAUNCHPAD_PROJECT% -classpath %CLASSPATH% %SYSTEM_PROPERTIES% %MAIN_CLASS%
 )
 
-SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dclassworlds.conf=%LAUNCHER_HOME%/classworlds.conf
+SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dclassworlds.conf=%JLAUNCHPAD_HOME%/classworlds.conf
 
 SET CLASSPATH=%REPOSITORY_HOME%/classworlds/classworlds/%CLASSWORLDS_VERSION%/classworlds-%CLASSWORLDS_VERSION%.jar
 
 SET PROPERTIES="-deps.file.name=%REPOSITORY_HOME%/org/sf/jlaunchpad/jlaunchpad-launcher/1.0.1/jlaunchpad-launcher-1.0.1.pom" 
 SET PROPERTIES=%PROPERTIES% "-main.class.name=org.sf.pomreader.ProjectInstaller"
 
-%JAVA_HOME%\bin\java %SYSTEM_PROPERTIES% -classpath %CLASSPATH% org.codehaus.classworlds.Launcher %PROPERTIES% "-Dbasedir=." "-Dbuild.required=true"
+%JAVA_HOME%\bin\java %SYSTEM_PROPERTIES% -classpath %CLASSPATH% org.codehaus.classworlds.Launcher %PROPERTIES% "-Dbasedir=." "-Dbuild.required=false"
 
 SET PROPERTIES2="-deps.file.name=%~dp0deps.xml" "-main.class.name=org.google.code.archetypes.Main"
 
