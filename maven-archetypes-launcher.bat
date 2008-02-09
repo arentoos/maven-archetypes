@@ -10,6 +10,7 @@ SET JLAUNCHPAD_HOME=%CURRENT_DIR%jlaunchpad
 
 SET DEBUG_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,address=5005,suspend=y,server=y
 
+SET JAVA_SPECIFICATION_VERSION_LEVEL=1.5
 SET JLAUNCHPAD_VERSION=1.0.1
 SET CLASSWORLDS_VERSION=1.1
 SET JDOM_VERSION=1.1
@@ -28,7 +29,7 @@ SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dbootstrap-mini.version=%BOOTSTRAP_MI
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Drepository.home=%REPOSITORY_HOME%
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Djlaunchpad.home=%JLAUNCHPAD_HOME%
 SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Drepository.home=%REPOSITORY_HOME%
-SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Djava.specification.version.level=1.5
+SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Djava.specification.version.level=%JAVA_SPECIFICATION_VERSION_LEVEL%
 
 IF NOT "%PROXY_SERVER_HOST_NAME" == "" (
   SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -DproxySet=true -DproxyHost=%PROXY_SERVER_HOST_NAME% -DproxyPort=%PROXY_SERVER_PORT%
@@ -64,7 +65,7 @@ SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dclassworlds.conf=%JLAUNCHPAD_HOME%/c
 
 SET CLASSPATH=%REPOSITORY_HOME%/classworlds/classworlds/%CLASSWORLDS_VERSION%/classworlds-%CLASSWORLDS_VERSION%.jar
 
-SET PROPERTIES="-deps.file.name=%REPOSITORY_HOME%/org/sf/jlaunchpad/jlaunchpad-launcher/1.0.1/jlaunchpad-launcher-1.0.1.pom" 
+SET PROPERTIES="-deps.file.name=%REPOSITORY_HOME%/org/sf/jlaunchpad/jlaunchpad-launcher/%JLAUNCHPAD_VERSION%/jlaunchpad-launcher-%%.pom" 
 SET PROPERTIES=%PROPERTIES% "-main.class.name=org.sf.pomreader.ProjectInstaller"
 
 %JAVA_HOME%\bin\java %SYSTEM_PROPERTIES% -classpath %CLASSPATH% org.codehaus.classworlds.Launcher %PROPERTIES% "-Dbasedir=." "-Dbuild.required=false"
