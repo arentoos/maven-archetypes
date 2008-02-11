@@ -3,8 +3,10 @@
 CURRENT_DIR=`dirname "$0"`
 
 JAVA_HOME=/home/alex/jdk1.6.0_03
-REPOSITORY_HOME=/media/sda2/maven-repository
 JLAUNCHPAD_HOME=$CURRENT_DIR/jlaunchpad
+
+REPOSITORY_HOME=/media/sda2/maven-repository
+#REPOSITORY_HOME=~/.m2/repository
 
 # Constants
 JAVA_SPECIFICATION_VERSION_LEVEL=1.5
@@ -75,7 +77,7 @@ CLASSPATH=$REPOSITORY_HOME/classworlds/classworlds/$CLASSWORLDS_VERSION/classwor
 PROPERTIES="-deps.file.name=$REPOSITORY_HOME/org/sf/jlaunchpad/jlaunchpad-launcher/$JLAUNCHPAD_VERSION/jlaunchpad-launcher-$JLAUNCHPAD_VERSION.pom" 
 PROPERTIES="$PROPERTIES -main.class.name=org.sf.pomreader.ProjectInstaller"
 
-$JAVA_HOME/bin/java $SYSTEM_PROPERTIES -classpath $CLASSPATH org.codehaus.classworlds.Launcher $PROPERTIES "-Dbasedir=." "-Dbuild.required=false"
+$JAVA_HOME/bin/java $SYSTEM_PROPERTIES -Dbasedir=. -Dbuild.required=false -classpath $CLASSPATH org.codehaus.classworlds.Launcher $PROPERTIES
 
 PROPERTIES2="-deps.file.name=$CURRENT_DIR/deps.xml -main.class.name=org.google.code.archetypes.Main"
 

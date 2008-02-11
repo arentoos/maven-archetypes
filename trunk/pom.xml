@@ -59,13 +59,6 @@
       <version>1.1</version>
     </dependency>
 
- <!--
-    <dependency>
-      <groupId>classworlds</groupId>
-      <artifactId>classworlds</artifactId>
-      <version>1.1</version>
-    </dependency>
-  -->
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-core</artifactId>
@@ -75,7 +68,7 @@
   </dependencies>
 
   <build>
-    <finalName>${project.artifactId}-${project.version}</finalName>
+    <finalName>${project.artifactId}</finalName>
 
     <defaultGoal>package</defaultGoal>
     
@@ -94,8 +87,9 @@
         <configuration>
           <descriptors>
             <descriptor>src/main/assembly/src.xml</descriptor>
+            <descriptor>src/main/assembly/bin.xml</descriptor>
            </descriptors>
-          <finalName>${project.build.finalName}</finalName>
+          <finalName>${project.artifactId}-${project.version}</finalName>
         </configuration>
       </plugin>
     </plugins>

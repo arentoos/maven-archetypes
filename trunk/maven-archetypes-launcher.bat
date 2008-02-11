@@ -4,9 +4,11 @@ SET CURRENT_DIR=%~dp0
 
 SET DRIVE_LETTER=c:
 
-set JAVA_HOME=%DRIVE_LETTER%/Java/jdk1.6.0
-SET REPOSITORY_HOME=%DRIVE_LETTER%/maven-repository
+SET JAVA_HOME=%DRIVE_LETTER%/Java/jdk1.6.0
 SET JLAUNCHPAD_HOME=%CURRENT_DIR%jlaunchpad
+
+SET REPOSITORY_HOME=%DRIVE_LETTER%/maven-repository
+rem SET REPOSITORY_HOME="%USERPROFILE%/.m2/repository"
 
 SET DEBUG_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,address=5005,suspend=y,server=y
 
@@ -65,10 +67,10 @@ SET SYSTEM_PROPERTIES=%SYSTEM_PROPERTIES% -Dclassworlds.conf=%JLAUNCHPAD_HOME%/c
 
 SET CLASSPATH=%REPOSITORY_HOME%/classworlds/classworlds/%CLASSWORLDS_VERSION%/classworlds-%CLASSWORLDS_VERSION%.jar
 
-SET PROPERTIES="-deps.file.name=%REPOSITORY_HOME%/org/sf/jlaunchpad/jlaunchpad-launcher/%JLAUNCHPAD_VERSION%/jlaunchpad-launcher-%%.pom" 
+SET PROPERTIES="-deps.file.name=%REPOSITORY_HOME%/org/sf/jlaunchpad/jlaunchpad-launcher/%JLAUNCHPAD_VERSION%/jlaunchpad-launcher-%JLAUNCHPAD_VERSION%.pom" 
 SET PROPERTIES=%PROPERTIES% "-main.class.name=org.sf.pomreader.ProjectInstaller"
 
-%JAVA_HOME%\bin\java %SYSTEM_PROPERTIES% -classpath %CLASSPATH% org.codehaus.classworlds.Launcher %PROPERTIES% "-Dbasedir=." "-Dbuild.required=false"
+%JAVA_HOME%\bin\java %SYSTEM_PROPERTIES% -Dbasedir=. -Dbuild.required=false -classpath %CLASSPATH% org.codehaus.classworlds.Launcher %PROPERTIES%
 
 SET PROPERTIES2="-deps.file.name=%~dp0deps.xml" "-main.class.name=org.google.code.archetypes.Main"
 
