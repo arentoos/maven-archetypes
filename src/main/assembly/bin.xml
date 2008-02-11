@@ -1,5 +1,5 @@
 <assembly>
-  <id>src</id>
+  <id>bin</id>
   <formats>
     <format>zip</format>
   </formats>
@@ -7,15 +7,18 @@
   <fileSets>
     <fileSet>
       <includes>
-        <include>*.ipr</include>
-        <include>*.iws</include>
-        <include>*.iml</include>
-        <include>*.txt</include>
         <include>*.xml</include>
+
+        <include>jlaunchpad*.zip</include>
         <include>*.bat</include>
         <include>*.sh</include>
+      </includes>
+    </fileSet>
 
-        <include>src/**</include>
+    <fileSet>
+      <directory>target</directory>
+      <includes>
+        <include>maven-archetypes.jar</include>
       </includes>
     </fileSet>
   </fileSets>

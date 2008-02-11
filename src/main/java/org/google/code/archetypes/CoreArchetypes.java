@@ -57,9 +57,9 @@ public abstract class CoreArchetypes extends XmlHelper {
        System.setProperty("remoteRepositories", sb.toString());
      }
 
-     String[] args = new String[] {"archetype:create"};
+     String[] args = new String[] {"org.apache.maven.plugins:maven-archetype-plugin:1.0-alpha-7:create"};
 
-      MavenCli.main(args, classWorld);
+     MavenCli.main(args, classWorld);
    }
 
 }
